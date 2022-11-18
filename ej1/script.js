@@ -7,7 +7,13 @@ var Jugador = {
     //ultimaSubidaNivel es una propiedad que nos permite guardar la última puntuación 
     //con la que se subió o bajo de nivel, para compararla con la puntuación actual y saber si el 
     //jugador subirá o bajará de nivel
-
+    
+    resetearPuntuacion(){
+        this.puntuacion = 1;
+        this.nivel = 1;
+        this.ultimaSubidaNivel = 1;
+        window.alert("El jugador ha sido reseteado") ;
+    },
     sumarPuntuacion(){
         this.puntuacion += 1;
         if(this.puntuacion.toString().endsWith("1") && this.puntuacion > this.ultimaSubidaNivel){
@@ -21,14 +27,12 @@ var Jugador = {
         if(this.puntuacion.toString().endsWith("1") && this.puntuacion < this.ultimaSubidaNivel){
             this.nivel -= 1;
             this.ultimaSubidaNivel = this.puntuacion;
-        } 
+        }
+        if(this.puntuacion == 0){
+            this.resetearPuntuacion();
+        }
     },
-    resetearPuntuacion(){
-        this.puntuacion = 1;
-        this.nivel = 1;
-        this.ultimaSubidaNivel = 1;
-        window.alert("El jugador ha sido reseteado") ;
-    }
+    
 }
 // Con el siguiente código se puede comprobar que el cambio de nivel sucede
 /*
